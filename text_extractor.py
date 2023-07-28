@@ -4,6 +4,7 @@ Installing the libraries we need (PyPDF2 and Langchain):
 !pip install openai langchain
 !pip install PyPDF2
 import PyPDF2
+import os
 from langchain import OpenAI
 from langchain import PromptTemplate
 
