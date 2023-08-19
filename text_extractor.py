@@ -5,7 +5,7 @@ Installing the libraries we need (PyPDF2 and Langchain):
 !pip install PyPDF2
 import PyPDF2
 import os
-from langchain import OpenAI
+from langchain import OpenAI #or any model!
 from langchain import PromptTemplate
 
 """
@@ -50,7 +50,7 @@ def clean_pdf_text(pdf):
 """
 Define variables
 """
-llm = OpenAI()
+llm = OpenAI() #you can obviously set this to any llm you want, howeve make sure you import the right model from Langchain above
 pdf_text = clean_pdf_text('sample.pdf')
 investor_focus = 'biotech'
 
