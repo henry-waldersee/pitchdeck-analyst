@@ -1,6 +1,6 @@
-"""
-Installing the libraries we need (PyPDF2 and Langchain):
-"""
+
+#Installing the libraries we need (PyPDF2 and Langchain):
+
 !pip install openai langchain
 !pip install PyPDF2
 import PyPDF2
@@ -8,9 +8,8 @@ import os
 from langchain import OpenAI #or any model!
 from langchain import PromptTemplate
 
-"""
-Enter your OpenAI API (!!! Add your own API Key !!!):
-"""
+#Enter your OpenAI API (!!! Add your own API Key !!!):
+
 openai_api_key = 'your_openAI_API_key'
 ###you can find this on: https://platform.openai.com/account/api-keys
 ###Make sure that you have an OpenAI account in order to have access to your own API key
@@ -18,9 +17,9 @@ openai_api_key = 'your_openAI_API_key'
 import os
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
-"""
-Definine (extract_pdf_text and clean_pdf_text)
-"""
+
+#Define (extract_pdf_text and clean_pdf_text)
+
 def extract_pdf_text(pdf: str):
     
     #PyPDF2 can extract text from PDFs and in this case add it to a list
@@ -47,16 +46,16 @@ def clean_pdf_text(pdf):
     clean_pdf_text = clean_pdf_text.replace('\n', '')
     return clean_pdf_text
 
-"""
-Define variables
-"""
+
+#Define variables for prompt
+
 llm = OpenAI() #you can obviously set this to any llm you want, howeve make sure you import the right model from Langchain above
 pdf_text = clean_pdf_text('sample.pdf')
 investor_focus = 'biotech'
 
-"""
-Creating a prompt template with Langchain
-"""
+
+#Creating a prompt template with Langchain
+
 
 template = """\
 I will give you a text exported from a pdf. It might not be clean data.
@@ -68,9 +67,8 @@ the text from the pitch deck is {pitchtext}
 
 prompt = PromptTemplate.from_template(template)
 
-"""
-Setting up the prompt and running it through OpenAI with Langchain
-"""
+#Setting up the prompt and running it through OpenAI with Langchain
+
 
 prompt = prompt.format(focus= investor_focus,pitchtext = pdf_text)
 
