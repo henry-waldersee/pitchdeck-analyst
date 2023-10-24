@@ -27,7 +27,7 @@ def extract_pdf_text(pdf: str):
     #https://github.com/federicoazzu/pdf_to_text/blob/master/main.py
     
     with open(pdf, 'rb') as pdf: # Open the PDF file of your choice
-        reader = PyPDF2.PdfReader(pdf, strict=False
+        reader = PyPDF2.PdfReader(pdf, strict=False)
         pdf_text = []
 
         for page in reader.pages:
